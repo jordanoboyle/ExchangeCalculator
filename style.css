@@ -55,3 +55,37 @@ p {
   background-size: 1em auto, 100%;
   background-repeat: no-repeat;
 }
+
+.currency input {
+  border: 0;
+  background: transparent;
+  font-size: 2em;
+  text-align: right;
+}
+
+.swap-rate-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.rate {
+  color: var(--primary-color);
+  font-size: 1.4em;
+  padding: 0 1.0em;
+}
+
+select:focus,
+input:focus,
+button:focus {
+  outline: 0;
+}
+
+/* Let's make this a little more responsive to a smaller screen. */
+
+@media (max-width: 600px) {
+  .currency input {
+    width: 200px
+  }
+}
