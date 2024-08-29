@@ -42,9 +42,9 @@ const swap = document.getElementById('swap');
 
 //Fetch exchange rate and update the DOM
 function calculateExchange() {
-
-  console.log("Runnin' with the devil!");
-  return true;
+  const currency_one = currencyElementOne.value;
+  const currency_two = currencyElementTwo.value;
+  console.log(currency_one, currency_two);
 }
 
 calculateExchange();
