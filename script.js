@@ -45,10 +45,19 @@ function calculateExchange() {
   const currency_one = currencyElementOne.value;
   const currency_two = currencyElementTwo.value;
   // console.log(currency_one, currency_two);
+  
 
   fetch(`https://open.er-api.com/v6/latest/${currency_one}`)
     .then(response => response.json()) //these are what is known as promises
-    .then(data => {console.log(data)});
+    .then(data => {
+      // console.log(data);
+      const rate = data.rates[currency_two];
+      console.log(rate);
+
+      rateElement.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+    })
+    .catch(error => console.error("Error fetching rates", error));
+
 }
 
 calculateExchange();
