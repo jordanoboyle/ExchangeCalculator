@@ -34,7 +34,7 @@ getTheData2();
 const currencyElementOne = document.getElementById('currency-one');
 const amountElementOne = document.getElementById('amount-one');
 const currencyElementTwo = document.getElementById('currency-two');
-const amountElementTwo = document.getElementById('amount-two');
+let amountElementTwo = document.getElementById('amount-two');
 
 const rateElement = document.getElementById('rate');
 const swap = document.getElementById('swap');
@@ -55,14 +55,28 @@ function calculateExchange() {
       console.log(rate);
 
       rateElement.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+
+      amountElementTwo.value = (amountElementOne.value * rate).toFixed(2);
+      console.log(amountElementTwo.value, currencyElementTwo.value);
+
+
     })
     .catch(error => console.error("Error fetching rates", error));
 
 }
 
-calculateExchange();
 //Event Listeners
 currencyElementOne.addEventListener('change', calculateExchange);
 amountElementOne.addEventListener('input', calculateExchange);
 currencyElementTwo.addEventListener('change', calculateExchange);
 amountElementTwo.addEventListener('input', calculateExchange);
+
+swap.addEventListener('click', () => {
+  const tempCurrencyValue = currencyElementOne.value;
+  
+  currencyElementOne.value = currencyElementTwo.value;
+  
+  currencyElementTwo.value = tempCurrencyValue;
+});
+
+calculateExchange();
