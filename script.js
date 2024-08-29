@@ -31,15 +31,25 @@ getTheData2();
 
 
 //DOM Elements needed:
-const currencyElement_one = document.getElementById('currency-one');
-const amountElement_one = document.getElementById('amount-one');
-const currencyElement_two = document.getElementById('currency-two');
-const amountElement_two = document.getElementById('amount-two');
+const currencyElementOne = document.getElementById('currency-one');
+const amountElementOne = document.getElementById('amount-one');
+const currencyElementTwo = document.getElementById('currency-two');
+const amountElementTwo = document.getElementById('amount-two');
 
 const rateElement = document.getElementById('rate');
 const swap = document.getElementById('swap');
 
 
 //Fetch exchange rate and update the DOM
+function calculateExchange() {
 
+  console.log("Runnin' with the devil!");
+  return true;
+}
+
+calculateExchange();
 //Event Listeners
+currencyElementOne.addEventListener('change', calculateExchange);
+amountElementOne.addEventListener('input', calculateExchange);
+currencyElementTwo.addEventListener('change', calculateExchange);
+amountElementTwo.addEventListener('input', calculateExchange);
