@@ -44,7 +44,11 @@ const swap = document.getElementById('swap');
 function calculateExchange() {
   const currency_one = currencyElementOne.value;
   const currency_two = currencyElementTwo.value;
-  console.log(currency_one, currency_two);
+  // console.log(currency_one, currency_two);
+
+  fetch(`https://open.er-api.com/v6/latest/${currency_one}`)
+    .then(response => response.json()) //these are what is known as promises
+    .then(data => {console.log(data)});
 }
 
 calculateExchange();
